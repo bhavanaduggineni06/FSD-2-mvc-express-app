@@ -6,6 +6,9 @@ dotenv.config();
 const PORT = process.env.PORT||8001;
 const MONGO_URI = process.env.MONGO_URI;
 const app=express();
+app.get('/', (req, res) => {
+    res.send("MVC Express App is Running");
+});
 app.use(express.json());
 connectDB(MONGO_URI);
 app.use('/api/v1/movies', movieRoutes);
